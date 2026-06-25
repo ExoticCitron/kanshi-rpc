@@ -1,17 +1,16 @@
 """
-Run this ONCE to generate a trusted localhost SSL certificate.
+run this ONCE to generate a trusted localhost ssl certificate
 
-Preferred method: mkcert (no browser warning needed)
-  1. Install mkcert: https://github.com/FiloSottile/mkcert#installation
+preferred method: mkcert (no browser warning needed)
+  1. install mkcert: https://github.com/FiloSottile/mkcert#installation
      Windows:  winget install FiloSottile.mkcert
      macOS:    brew install mkcert
      Linux:    see https://github.com/FiloSottile/mkcert#linux
-  2. Run: mkcert -install
-  3. Run: mkcert localhost
+  2. run: mkcert -install
+  3. run: mkcert localhost
      -> produces localhost.pem + localhost-key.pem (already trusted by your browser)
 
-Fallback method (this script): self-signed cert — works but requires a one-time
-browser trust step (visit https://localhost:8080 and click Advanced > Proceed).
+fallback method (this script): self-signed cert — works but requires a one-time browser trust step (visit https://localhost:8080 and click Advanced > Proceed).
 """
 import datetime
 import pathlib
@@ -41,9 +40,9 @@ def try_mkcert():
     cert = HERE / "localhost.pem"
     key  = HERE / "localhost-key.pem"
     if cert.exists() and key.exists():
-        print(f"\nCertificate: {cert}")
-        print(f"Private key: {key}")
-        print("\nAll done — no browser trust step needed. Run discord_helper.py!")
+        print(f"\n[DIVISION] Certificate: {cert}")
+        print(f"[DIVISION] Private key: {key}")
+        print("\n[DIVISION] all done — no browser trust step needed. run python discord_helper.py")
         return True
     return False
 
@@ -93,20 +92,20 @@ def fallback_selfsigned():
     print(f"Certificate written to: {cert_path}")
     print(f"Private key written to: {key_path}")
     print()
-    print("IMPORTANT — one-time browser trust step required:")
+    print("IMPORTANT: DO THIS ONLY IF YOU HAVE AN ERROR — one-time browser trust step required:")
     print("  1. Start discord_helper.py")
     print("  2. Visit https://localhost:8080 in your browser")
     print("  3. Click 'Advanced' → 'Proceed to localhost (unsafe)'")
     print("  4. Close that tab — done! Your browser now trusts the cert.")
     print()
     print("TIP: Install mkcert to skip this step entirely next time.")
-    print("  Windows Command Prompt: winget install FiloSottile.mkcert OR `"%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe" install FiloSottile.mkcert`")
+    print("  Windows Command Prompt: winget install FiloSottile.mkcert OR '%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe' install FiloSottile.mkcert`")
     print("  macOS:   brew install mkcert")
 
 
 if __name__ == "__main__":
-    print("Kanshi Discord Helper — Certificate Generator")
+    print("[DIVISION] Kanshi Discord Helper — Certificate Generator")
     print("=" * 50)
     if not try_mkcert():
-        print("mkcert not found, falling back to self-signed certificate...\n")
+        print("[DIVISION] mkcert not found, falling back to self-signed certificate...\n")
         fallback_selfsigned()
