@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ```
 # Install mkcert
-winget install FiloSottile.mkcert       # Windows
+winget install FiloSottile.mkcert  OR "%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe" install FiloSottile.mkcert     # Windows
 brew install mkcert                      # macOS
 
 # Generate your cert
@@ -43,7 +43,7 @@ python gen_cert.py
 python gen_cert.py
 ```
 
-Then, when prompted, visit `https://localhost:8080` in your browser and click **Advanced → Proceed to localhost** once to trust it.
+Then, ONLY IF prompted, visit `https://localhost:8080` in your browser and click **Advanced → Proceed to localhost** once to trust it.
 
 ### Step 3 — Create a Discord Application
 
@@ -51,6 +51,7 @@ Then, when prompted, visit `https://localhost:8080` in your browser and click **
 2. Click **New Application**, give it any name (e.g. "Kanshi")
 3. Copy the **Application ID** (also called Client ID)
 
+Remember, the discord presence only works on the account you made the application with. make sure you're on desktop
 ### Step 4 — Run the helper
 
 ```
@@ -61,7 +62,7 @@ Keep this terminal open while you browse Kanshi.
 
 ### Step 5 — Connect in Kanshi
 
-1. Go to **Settings → Integrations** on [anistream-dun.vercel.app](https://anistream-dun.vercel.app)
+1. Go to **Settings → Integrations** on [anistream-dun.vercel.app](https://anistream-dun.vercel.app/settings)
 2. Paste your **Client ID** and click **Save**
 3. The helper will connect and your Discord status will update automatically!
 
@@ -73,7 +74,7 @@ Press `Win+R`, type `shell:startup`, press Enter. Create a `.bat` file there:
 
 ```bat
 @echo off
-python "C:\path\to\discord-helper\discord_helper.py"
+python "C:\path\to\kanshi-rpc\discord_helper.py"
 ```
 
 Replace the path with wherever you extracted this folder.
