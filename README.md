@@ -30,7 +30,8 @@ pip install -r requirements.txt
 
 ```
 # Install mkcert
-winget install FiloSottile.mkcert  OR "%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe" install FiloSottile.mkcert     # Windows
+winget install FiloSottile.mkcert     # Windows
+OR you can do:   '%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe' install FiloSottile.mkcert     # Windows
 brew install mkcert                      # macOS
 
 # Generate your cert
