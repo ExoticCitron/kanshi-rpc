@@ -100,7 +100,7 @@ def fallback_selfsigned():
     print("  4. Close that tab — done! Your browser now trusts the cert.")
     print()
     print("TIP: Install mkcert to skip this step entirely next time.")
-    print("  Windows: winget install FiloSottile.mkcert")
+    print("  Windows Command Prompt: winget install FiloSottile.mkcert OR `"%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe" install FiloSottile.mkcert`")
     print("  macOS:   brew install mkcert")
 
 
